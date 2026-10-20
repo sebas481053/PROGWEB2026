@@ -1,0 +1,28 @@
+function fizzBuzz(n) {
+  if (
+    n === "" ||
+    n === null ||
+    n === undefined ||
+    isNaN(n) ||
+    !Number.isInteger(Number(n)) ||
+    Number(n) <= 0
+  ) {
+    console.log("Error: ingrese un número entero mayor que 0.");
+    return;
+  }
+
+  for (let i = 1; i <= n; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      console.log("FizzBuzz");
+    } else if (i % 3 === 0) {
+      console.log("Fizz");
+    } else if (i % 5 === 0) {
+      console.log("Buzz");
+    } else {
+      console.log(i);
+    }
+  }
+}
+
+// Ejemplo
+fizzBuzz(15);
