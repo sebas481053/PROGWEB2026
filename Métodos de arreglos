@@ -1,0 +1,91 @@
+const datos = [
+  {
+    id: 1,
+    nombre: "Laptop Gamer",
+    categoria: "Tecnología",
+    precio: 25000,
+    stock: 8,
+    proveedor: {
+      nombre: "TechStore",
+    },
+  },
+  {
+    id: 2,
+    nombre: "Mouse RGB",
+    categoria: "Tecnología",
+    precio: 800,
+    stock: 25,
+    proveedor: {
+      nombre: "GamingMX",
+    },
+  },
+  {
+    id: 3,
+    nombre: "Teclado Mecánico",
+    categoria: "Tecnología",
+    precio: 1500,
+    stock: 12,
+    proveedor: null,
+  },
+  {
+    id: 4,
+    nombre: "Monitor 27 pulgadas",
+    categoria: "Tecnología",
+    precio: 5200,
+    stock: 6,
+    proveedor: {
+      nombre: "DisplayPro",
+    },
+  },
+  {
+    id: 5,
+    nombre: "Audífonos Gamer",
+    categoria: "Tecnología",
+    precio: 1200,
+    stock: 18,
+    proveedor: {
+      nombre: "SoundTech",
+    },
+  },
+];
+
+/* Desestructuración */
+const [primerProducto] = datos;
+const { nombre, precio } = primerProducto;
+
+console.log("Primer producto:");
+console.log(nombre, precio);
+
+/* Lista filtrada */
+const filtrados = datos.filter((producto) => producto.precio > 1000);
+
+/* Total de precios */
+const total = datos.reduce(
+  (acumulador, producto) => acumulador + producto.precio,
+  0,
+);
+
+/* Promedio de precios */
+const promedio = total / datos.length;
+
+/* Lista ordenada por precio */
+const ordenados = [...datos].sort((a, b) => a.precio - b.precio);
+
+/* Optional Chaining y Nullish Coalescing */
+const proveedores = datos.map((producto) => ({
+  producto: producto.nombre,
+  proveedor: producto.proveedor?.nombre ?? "Sin proveedor registrado",
+}));
+
+/* Verificar que no se mutó el arreglo original */
+console.log("Arreglo original:");
+console.log(datos);
+
+console.log("Resultados:");
+console.log({
+  filtrados,
+  total,
+  promedio,
+  ordenados,
+  proveedores,
+});
